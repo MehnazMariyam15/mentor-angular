@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-xl-11 mt-5 ml-5 mr-5 mx-5">
+        <h2> User List </h2>       
+            <table class="table">
+                <tr>
+                    <th class="ml-5">TRAINEE NAME </th>
+                    <th class="ml-5">CONTACT</th>
+                    <th class="ml-5">EMAIL</th>
+                    <th class="ml-5"></th>                   
+                    <th class="ml-5">RESPONSE</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let user of trainees">
+                    <td class="ml-5">{{user.traineeId.userID}}</td>
+                    <td class="ml-5">{{user.traineeId.contactNo}}</td>
+                    <td class="ml-5">{{user.traineeId.email}}</td>                  
+                    <div  *ngIf="user.proposalStatus=='PENDING'">
+                        <td class="ml-5">
+                            <button type="submit" class="badge-success" (click)="accept(user.id)">Accept</button>
+                        </td>
+                        <td class="ml-5">
+                            <button type="submit" class="badge-danger" (click)="decline(user.id)">Decline</button>
+                        </td>
+                    </div>                    
+                    <div  *ngIf="user.proposalStatus=='APPROVED'">
+                        <td class="ml-5">
+                            <button type="submit" class="badge-success" >In progess</button>
+                        </td>                            
+                    </div>  
+                </tr>
+            </table>
+    </div>   
+</div>

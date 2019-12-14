@@ -1,0 +1,81 @@
+<div class="sign-image container-fluid">
+    <div class="row">
+      <div class="col-xs-11 mt-5 ml-5 mr-5 mb-5 mx-auto">
+        <div class="card mt-5">
+          <h1 class="mt-5 ml-5">Register</h1>
+          <form [formGroup]="signUpForm">
+            <div class="row mt-5 ml-5 mr-5">
+              <div class="alert-danger col-12 px-auto" *ngIf="signUpForm.get('userID').hasError('userNameTaken')">
+                Username already exists
+              </div>
+              <div class="col-md-6 col-xs-12">
+                <h6><label for="userID">Username</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Username" formControlName="userID"
+                  id="userID">
+                <div class="text-danger" *ngIf="userID.invalid && userID.errors.required && userID.touched">Username
+                  is required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="firstName">First Name</label></h6>
+                <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName"
+                  id="firstName">
+                <div class="text-danger" *ngIf="firstName.invalid && firstName.errors.required && firstName.touched">First
+                  Name is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6><label for="lastName">Last Name</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastName"
+                  id="lastName">
+                <div class="text-danger" *ngIf="lastName.invalid && lastName.errors.required && lastName.touched">Last
+                  Name
+                  is required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="contactNo">Contact</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Contact" formControlName="contactNo"
+                  id="contactNo">
+                <div class="text-danger" *ngIf="contactNo.invalid && contactNo.errors.required && contactNo.touched">
+                  Contact is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6> <label for="email">Email-Id</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Email Id" formControlName="email" id="email">
+                <div class="text-danger" *ngIf="email.invalid && email.errors.required && email.touched">Email
+                  is required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="password">Password</label></h6>
+                <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
+                  id="password">
+                <div class="text-danger" *ngIf="password.invalid && password.errors.required && password.touched">Password
+                  is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6> <label for="confirmPassword">Confirm Password</label></h6>
+                <input type="password" class="form-control" placeholder="Enter Confirm Password"
+                  formControlName="confirmPassword" id="confirmPassword">
+                <div class="text-danger"
+                  *ngIf="confirmPassword.invalid && confirmPassword.errors.required && confirmPassword.touched">Confirm
+                  the
+                  Password</div>
+                <div class="text-danger" *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">Password and
+                  Confirm
+                  Password do not match</div>
+              </div>
+            </div>
+            <div class="row mt-5 ml-5 mr-5 mb-5">
+              <div class="col-6 mx-auto">
+                <button type="button" (click)="this.submit(signUpForm.value)" class="btn btn-purple" [disabled]="!signUpForm.valid">Signup</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

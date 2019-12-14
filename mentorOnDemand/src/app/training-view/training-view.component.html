@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-xl-11 mt-5 ml-5 mr-5 mx-5">
+            <h2> User List </h2>
+           
+            <table class="table">
+                <tr>
+                    <th class="ml-5">MENTOR NAME </th>
+                    <th class="ml-5">CONTACT</th>
+                    <th class="ml-5">EMAIL</th>
+                    <th class="ml-5"></th>                       
+                    <th class="ml-5">RESPONSE</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let user of mentor">
+                    <td class="ml-5">{{user.mentorId.userID}}</td>
+                    <td class="ml-5">{{user.mentorId.contactNo}}</td>
+                    <td class="ml-5">{{user.mentorId.email}}</td>
+                    <div  *ngIf="user.proposalStatus=='APPROVED'">
+                        <td class="ml-5">
+                            <button type="submit" (click)="pay()" class="badge-success" >
+                                Pay Now
+                            </button>
+                        </td>
+                    </div>
+                    <div  *ngIf="user.proposalStatus=='PENDING'">
+                        <td class="ml-5">
+                            <button type="submit" class="badge-danger" >
+                                Approval Pending
+                            </button>
+                        </td>
+                    </div>        
+                </tr>
+            </table>
+        </div>
+    </div>
+    

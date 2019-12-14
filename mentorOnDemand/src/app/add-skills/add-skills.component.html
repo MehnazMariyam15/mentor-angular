@@ -1,0 +1,20 @@
+<div class="card-group ml-5 my-5">
+  <div class="" *ngFor="let sk of technologies">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-8">
+          <h4 class="card-title">{{sk.skillName}}</h4>
+        </div>
+      </div>
+      <div class="mr-3">
+        <h6>Prerequisites for this course:</h6> {{sk.prerequisites}}
+      </div>
+      <div class="mr-3">
+        <h6>Duration:</h6> {{sk.duration}} months
+      </div>
+      <button type="button" class="btn btn-danger text-light" (click)="submit(sk.skillName)">
+        Add Skill
+      </button>
+    </div>
+  </div>
+</div>

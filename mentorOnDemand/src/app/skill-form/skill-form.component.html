@@ -1,0 +1,39 @@
+<div class="container mb-4 pb-4">
+    <h2 class="mt-4">Skill Details</h2>
+    <form class="needs-validation" [formGroup]="editForm">
+        <div class="form-row">
+            <div class="form-group col-md-3 mb-3">
+                <label for="rating">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating" placeholder="Enter rating">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3 mb-3">
+                <label for="experience">Years Of Experience</label>
+                <input type="text" class="form-control" id="experience" formControlName="experience" placeholder="Enter years of experience" >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="trainings">Trainings Delivered</label>
+                <input type="text" class="form-control" id="trainings" formControlName="trainings" placeholder="Enter your previous training details">
+            </div>
+        </div>    
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <label for="facilities">Facilities Offered</label>
+                <input type="text" class="form-control" id="facilities" formControlName="facilities" placeholder="Enter the facilities offered">
+            </div>
+        </div>
+        <div class="row mt-5 ml-5 mr-5 mb-5">
+            <div class="col-12">
+                <button type="submit" class="btn button-color text-light" (click)="submit(editForm.value)" >Submit</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-3">
+                <button type="submit" class="btn btn-primary text-light" (click)="addSkill(editForm.value)">Add Skill</button>
+            </div>
+        </div>
+    </form>
+</div>
